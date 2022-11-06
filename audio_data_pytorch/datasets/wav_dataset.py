@@ -45,10 +45,12 @@ class WAVDataset(Dataset):
         try:
             waveform, sample_rate = torchaudio.load(self.wavs[idx])
         except Exception:
+            print('there was an error trying to load',self.wavs[idx])
             invalid_audio = True
 
         # Check that the sample is not silent
         if not invalid_audio and self.check_silence and is_silence(waveform):
+            print(self.wavs[idx],'was found to be completely silent')
             invalid_audio = True
 
         # Get new sample if audio is invalid
