@@ -28,9 +28,9 @@ class WAVDataset(Dataset):
         check_silence: bool = True,
     ):
         self.paths = path if isinstance(path, (list, tuple)) else [path]
-        print(self.paths)
+        print('paths are:',self.paths)
         self.wavs = get_all_wav_filenames(self.paths, recursive=recursive)
-        print(self.wavs)
+        print('wavs are:',self.wavs)
         self.transforms = transforms
         self.sample_rate = sample_rate
         self.check_silence = check_silence
