@@ -22,7 +22,7 @@ class WAVDataset(Dataset):
     def __init__(
         self,
         path: Union[str, Sequence[str]],
-        recursive: bool = False,
+        recursive: bool = True,
         transforms: Optional[Callable] = None,
         sample_rate: Optional[int] = None,
         check_silence: bool = True,
